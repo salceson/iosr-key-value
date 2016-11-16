@@ -1,0 +1,64 @@
+version: '2'
+services:
+  member1:
+    image: iosr/key-value-server
+    environment:
+      - SERVER_ARGS=member1:6666 member2:6666 member3:6666 member4:6666 member5:6666
+    networks:
+      - iosr
+  member2:
+    image: iosr/key-value-server
+    environment:
+      - SERVER_ARGS=member2:6666 member1:6666 member3:6666 member4:6666 member5:6666
+    networks:
+      - iosr
+  member3:
+    image: iosr/key-value-server
+    environment:
+      - SERVER_ARGS=member3:6666 member1:6666 member2:6666 member4:6666 member5:6666
+    networks:
+      - iosr
+  member4:
+    image: iosr/key-value-server
+    environment:
+      - SERVER_ARGS=member4:6666 member1:6666 member2:6666 member3:6666 member5:6666
+    networks:
+      - iosr
+  member5:
+    image: iosr/key-value-server
+    environment:
+      - SERVER_ARGS=member5:6666 member1:6666 member2:6666 member3:6666 member4:6666
+    networks:
+      - iosr
+  client1:
+    image: iosr/key-value-client
+    environment:
+      - CLIENT_ARGS=member1:6666 member2:6666 member3:6666 member4:6666 member5:6666
+    networks:
+      - iosr
+  client2:
+    image: iosr/key-value-client
+    environment:
+      - CLIENT_ARGS=member1:6666 member2:6666 member3:6666 member4:6666 member5:6666
+    networks:
+      - iosr
+  client3:
+    image: iosr/key-value-client
+    environment:
+      - CLIENT_ARGS=member1:6666 member2:6666 member3:6666 member4:6666 member5:6666
+    networks:
+      - iosr
+  client4:
+    image: iosr/key-value-client
+    environment:
+      - CLIENT_ARGS=member1:6666 member2:6666 member3:6666 member4:6666 member5:6666
+    networks:
+      - iosr
+  client5:
+    image: iosr/key-value-client
+    environment:
+      - CLIENT_ARGS=member1:6666 member2:6666 member3:6666 member4:6666 member5:6666
+    networks:
+      - iosr
+networks:
+  iosr:

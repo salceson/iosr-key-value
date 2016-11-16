@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>key-value-server</artifactId>
+    <artifactId>key-value-client</artifactId>
 
     <dependencies>
         <dependency>
@@ -20,7 +20,7 @@
 
         <dependency>
             <groupId>io.atomix.copycat</groupId>
-            <artifactId>copycat-server</artifactId>
+            <artifactId>copycat-client</artifactId>
             <version>${copycat.version}</version>
         </dependency>
 
@@ -38,7 +38,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>iosr.keyvalue.server.Main</mainClass>
+                            <mainClass>iosr.keyvalue.client.Main</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
