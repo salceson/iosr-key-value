@@ -2,12 +2,12 @@ sudo: required
 services:
   - docker
 language: java
-script:
+install:
   - mvn clean install docker:build
+script:
   - docker network create iosrkeyvalue_iosr
   - docker-compose create
   - docker-compose start
   - sleep 180
   - docker-compose stop
-  - SERVERS_STARTED=`docker-compose logs | grep "Server started" | wc -l`
-  - echo ${SERVERS_STARTED}
+  - docker-compose logs
