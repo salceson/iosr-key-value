@@ -4,6 +4,7 @@ services:
 language: java
 script:
   - mvn clean install docker:build
+  - docker network create iosrkeyvalue_iosr
   - docker-compose create
   - docker-compose start
   - sleep 180
