@@ -15,7 +15,7 @@
     </modules>
 
     <properties>
-        <copycat.version>1.1.4</copycat.version>
+        <copycat.version>1.1.0</copycat.version>
         <logback.version>1.1.2</logback.version>
         <docker.image.prefix>iosr</docker.image.prefix>
     </properties>

@@ -38,7 +38,7 @@ public class Main {
                 .withTransport(new NettyTransport())
                 .withConnectionStrategy(ConnectionStrategies.FIBONACCI_BACKOFF)
                 .withRecoveryStrategy(RecoveryStrategies.RECOVER)
-                .withServerSelectionStrategy(ServerSelectionStrategies.LEADER)
+                .withServerSelectionStrategy(ServerSelectionStrategies.ANY)
                 .build();
 
         client.serializer().register(PutCommand.class, 1);

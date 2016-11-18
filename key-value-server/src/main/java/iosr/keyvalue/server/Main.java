@@ -8,8 +8,10 @@ import iosr.keyvalue.command.RemoveCommand;
 import iosr.keyvalue.query.GetQuery;
 import iosr.keyvalue.statemachine.StoreStateMachine;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Main {
 
@@ -30,11 +32,15 @@ public class Main {
             members.add(new Address(memberInfo[0], Integer.valueOf(memberInfo[1])));
         }
 
-        Thread.sleep(1000);
+        Thread.sleep(1000 + new Random().nextInt(5000));
 
         final CopycatServer server = CopycatServer.builder(address)
                 .withStateMachine(StoreStateMachine::new)
-                .withTransport(new NettyTransport())
+                .withTransport(NettyTransport.builder()
+                        .withThreads(4)
+                        .build()
+                )
+                .withElectionTimeout(Duration.ofMillis(500))
                 .build();
 
         server.serializer().register(PutCommand.class, 1);
