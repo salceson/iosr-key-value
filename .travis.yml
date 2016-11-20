@@ -9,7 +9,7 @@ script:
   - docker network create iosrkeyvalue_iosr
   - docker-compose create
   - docker-compose start
-  - sleep 600
+  - sleep 500
   - docker-compose stop
   - docker-compose stop
   - docker-compose logs
