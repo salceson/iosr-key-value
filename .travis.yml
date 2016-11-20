@@ -13,4 +13,4 @@ script:
   - docker-compose stop
   - docker-compose stop
   - docker-compose logs
-  - ./scripts/check_docker.sh || exit 1
+  - scripts/check_docker.sh || exit 1
