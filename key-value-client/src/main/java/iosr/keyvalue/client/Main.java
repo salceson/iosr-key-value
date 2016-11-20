@@ -53,8 +53,8 @@ public class Main {
 
         LOGGER.info("Key: " + key);
 
-        for (int i = 0; i < 1000; i++) {
-            if (i % 10 == 0 || i == 999) {
+        for (int i = 0; i < 100000; i++) {
+            if (i % 10 == 0 || i == 99999) {
                 LOGGER.info(String.format("Performing %dth write...", i + 1));
             }
             client.submit(new PutCommand(key, UUID.randomUUID())).join();
