@@ -18,7 +18,7 @@ services:
     image: iosr/key-value-server
     restart: always
     environment:
-      - SERVER_ARGS=--server=member3:9003 --members=member1:9001,member3:9002
+      - SERVER_ARGS=--server=member3:9003 --members=member1:9001,member2:9002
     networks:
       - iosr
   client1:

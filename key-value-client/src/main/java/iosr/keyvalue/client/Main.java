@@ -55,7 +55,7 @@ public class Main {
 
         client.submit(new PutCommand(key, 0)).join();
 
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 10000; i++) {
             if (i % 10 == 0 || i == 999) {
                 LOGGER.info(String.format("Performing %dth write...", i + 1));
             }
