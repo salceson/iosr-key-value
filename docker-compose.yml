@@ -1,0 +1,43 @@
+version: '2'
+services:
+  member1:
+    image: iosr/key-value-server
+    restart: always
+    environment:
+      - SERVER_ARGS=member1:9001 member2:9002 member3:9003
+    networks:
+      - iosr
+  member2:
+    image: iosr/key-value-server
+    restart: always
+    environment:
+      - SERVER_ARGS=member2:9002 member1:9001 member3:9003
+    networks:
+      - iosr
+  member3:
+    image: iosr/key-value-server
+    restart: always
+    environment:
+      - SERVER_ARGS=member3:9003 member1:9001 member2:9002
+    networks:
+      - iosr
+  client1:
+    image: iosr/key-value-client
+    environment:
+      - CLIENT_ARGS=member1:9001 member2:9002 member3:9003
+    networks:
+      - iosr
+  client2:
+    image: iosr/key-value-client
+    environment:
+      - CLIENT_ARGS=member1:9001 member2:9002 member3:9003
+    networks:
+      - iosr
+  client3:
+    image: iosr/key-value-client
+    environment:
+      - CLIENT_ARGS=member1:9001 member2:9002 member3:9003
+    networks:
+      - iosr
+networks:
+  iosr:
