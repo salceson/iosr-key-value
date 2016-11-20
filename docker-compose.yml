@@ -4,21 +4,21 @@ services:
     image: iosr/key-value-server
     restart: always
     environment:
-      - SERVER_ARGS=member1:9001 member2:9002 member3:9003
+      - SERVER_ARGS=--server=member1:9001 --members=member2:9002,member3:9003
     networks:
       - iosr
   member2:
     image: iosr/key-value-server
     restart: always
     environment:
-      - SERVER_ARGS=member2:9002 member1:9001 member3:9003
+      - SERVER_ARGS=--server=member2:9002 --members=member1:9001,member3:9003
     networks:
       - iosr
   member3:
     image: iosr/key-value-server
     restart: always
     environment:
-      - SERVER_ARGS=member3:9003 member1:9001 member2:9002
+      - SERVER_ARGS=--server=member3:9003 --members=member1:9001,member3:9002
     networks:
       - iosr
   client1:
