@@ -32,7 +32,7 @@ public class Main {
             members.add(new Address(parts[0], Integer.valueOf(parts[1])));
         }
 
-        Thread.sleep(30000);
+        Thread.sleep(60 * 1000);
 
         CopycatClient client = CopycatClient.builder()
                 .withTransport(new NettyTransport())
