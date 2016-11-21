@@ -83,18 +83,6 @@ services:
       - CLIENT_ARGS=member1:9001 member2:9002 member3:9003 member4:9004 member5:9005
     networks:
       - iosr
-  client9:
-    image: iosr/key-value-client
-    environment:
-      - CLIENT_ARGS=member1:9001 member2:9002 member3:9003 member4:9004 member5:9005
-    networks:
-      - iosr
-  client10:
-    image: iosr/key-value-client
-    environment:
-      - CLIENT_ARGS=member1:9001 member2:9002 member3:9003 member4:9004 member5:9005
-    networks:
-      - iosr
   pumba:
     image: gaiaadm/pumba
     command: pumba --interval 10s --random pause --duration 3s iosrkeyvalue_member1_1 iosrkeyvalue_member2_1 iosrkeyvalue_member3_1 iosrkeyvalue_member4_1 iosrkeyvalue_member5_1
