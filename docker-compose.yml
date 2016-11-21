@@ -4,39 +4,95 @@ services:
     image: iosr/key-value-server
     restart: always
     environment:
-      - SERVER_ARGS=member1:9001 member2:9002 member3:9003
+      - SERVER_ARGS=--server=member1:9001 --members=member2:9002,member3:9003,member4:9004,member5:9005
     networks:
       - iosr
   member2:
     image: iosr/key-value-server
     restart: always
     environment:
-      - SERVER_ARGS=member2:9002 member1:9001 member3:9003
+      - SERVER_ARGS=--server=member2:9002 --members=member1:9001,member3:9003,member4:9004,member5:9005
     networks:
       - iosr
   member3:
     image: iosr/key-value-server
     restart: always
     environment:
-      - SERVER_ARGS=member3:9003 member1:9001 member2:9002
+      - SERVER_ARGS=--server=member3:9003 --members=member1:9001,member2:9002,member4:9004,member5:9005
+    networks:
+      - iosr
+  member4:
+    image: iosr/key-value-server
+    restart: always
+    environment:
+      - SERVER_ARGS=--server=member4:9004 --members=member1:9001,member2:9002,member3:9003,member5:9005
+    networks:
+      - iosr
+  member5:
+    image: iosr/key-value-server
+    restart: always
+    environment:
+      - SERVER_ARGS=--server=member5:9005 --members=member1:9001,member2:9002,member4:9004,member3:9003
     networks:
       - iosr
   client1:
     image: iosr/key-value-client
     environment:
-      - CLIENT_ARGS=member1:9001 member2:9002 member3:9003
+      - CLIENT_ARGS=member1:9001 member2:9002 member3:9003 member4:9004 member5:9005
     networks:
       - iosr
   client2:
     image: iosr/key-value-client
     environment:
-      - CLIENT_ARGS=member1:9001 member2:9002 member3:9003
+      - CLIENT_ARGS=member1:9001 member2:9002 member3:9003 member4:9004 member5:9005
     networks:
       - iosr
   client3:
     image: iosr/key-value-client
     environment:
-      - CLIENT_ARGS=member1:9001 member2:9002 member3:9003
+      - CLIENT_ARGS=member1:9001 member2:9002 member3:9003 member4:9004 member5:9005
+    networks:
+      - iosr
+  client4:
+    image: iosr/key-value-client
+    environment:
+      - CLIENT_ARGS=member1:9001 member2:9002 member3:9003 member4:9004 member5:9005
+    networks:
+      - iosr
+  client5:
+    image: iosr/key-value-client
+    environment:
+      - CLIENT_ARGS=member1:9001 member2:9002 member3:9003 member4:9004 member5:9005
+    networks:
+      - iosr
+  client6:
+    image: iosr/key-value-client
+    environment:
+      - CLIENT_ARGS=member1:9001 member2:9002 member3:9003 member4:9004 member5:9005
+    networks:
+      - iosr
+  client7:
+    image: iosr/key-value-client
+    environment:
+      - CLIENT_ARGS=member1:9001 member2:9002 member3:9003 member4:9004 member5:9005
+    networks:
+      - iosr
+  client8:
+    image: iosr/key-value-client
+    environment:
+      - CLIENT_ARGS=member1:9001 member2:9002 member3:9003 member4:9004 member5:9005
+    networks:
+      - iosr
+  client9:
+    image: iosr/key-value-client
+    environment:
+      - CLIENT_ARGS=member1:9001 member2:9002 member3:9003 member4:9004 member5:9005
+    networks:
+      - iosr
+  client10:
+    image: iosr/key-value-client
+    environment:
+      - CLIENT_ARGS=member1:9001 member2:9002 member3:9003 member4:9004 member5:9005
     networks:
       - iosr
   pumba:

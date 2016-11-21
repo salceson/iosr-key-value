@@ -1,14 +1,17 @@
 package iosr.keyvalue.statemachine;
 
+import com.google.common.collect.ImmutableMap;
 import io.atomix.copycat.server.Commit;
 import io.atomix.copycat.server.StateMachine;
 import iosr.keyvalue.command.PutCommand;
 import iosr.keyvalue.command.RemoveCommand;
 import iosr.keyvalue.query.GetQuery;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@Component
 public class StoreStateMachine extends StateMachine {
 
     private final Map<Object, Object> store = new HashMap<>();
@@ -38,6 +41,10 @@ public class StoreStateMachine extends StateMachine {
         } finally {
             commit.close();
         }
+    }
+
+    public ImmutableMap<Object, Object> getStoreCopy() {
+        return ImmutableMap.copyOf(store);
     }
 
 }

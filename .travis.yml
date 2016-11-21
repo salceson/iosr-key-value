@@ -9,8 +9,8 @@ script:
   - docker network create iosrkeyvalue_iosr
   - docker-compose create
   - docker-compose start
-  - sleep 500
+  - ./verify.sh
+  - docker-compose stop pumba
   - docker-compose stop
   - docker-compose stop
   - docker-compose logs
-  - ./scripts/check_clients.sh || exit 1
