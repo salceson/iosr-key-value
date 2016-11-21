@@ -97,7 +97,7 @@ services:
       - iosr
   pumba:
     image: gaiaadm/pumba
-    command: pumba --interval 10s --random pause --duration 3s iosrkeyvalue_member1_1 iosrkeyvalue_member2_1 iosrkeyvalue_member3_1
+    command: pumba --interval 10s --random pause --duration 3s iosrkeyvalue_member1_1 iosrkeyvalue_member2_1 iosrkeyvalue_member3_1 iosrkeyvalue_member4_1 iosrkeyvalue_member5_1
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 networks:
