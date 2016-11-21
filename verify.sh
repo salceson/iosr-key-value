@@ -2,7 +2,7 @@
 
 START=$(date +%s)
 
-while [ $(($(date +%s)-$START)) -lt 600 ] && [ `docker-compose ps | grep Up | wc -l` -gt 5 ]; do
+while [ $(($(date +%s)-$START)) -lt 600 ] && [ `docker-compose ps | grep Up | wc -l` -gt 6 ]; do
     echo -n "."
     sleep 10
 done

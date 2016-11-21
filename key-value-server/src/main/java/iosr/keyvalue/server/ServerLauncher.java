@@ -72,6 +72,7 @@ public class ServerLauncher {
                         .build()
                 )
                 .withElectionTimeout(Duration.ofMillis(500))
+                .withSessionTimeout(Duration.ofSeconds(10))
                 .build();
 
         server.serializer().register(PutCommand.class, 1);

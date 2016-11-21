@@ -5,9 +5,12 @@ language: java
 install:
   - mvn clean install docker:build
 script:
+  - docker network create iosrkeyvalue_default
   - docker network create iosrkeyvalue_iosr
   - docker-compose create
   - docker-compose start
   - ./verify.sh
+  - docker-compose stop pumba
+  - docker-compose stop
   - docker-compose stop
   - docker-compose logs
