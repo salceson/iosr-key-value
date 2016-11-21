@@ -12,6 +12,7 @@
         <module>key-value-common</module>
         <module>key-value-server</module>
         <module>key-value-client</module>
+        <module>key-value-verify</module>
     </modules>
 
     <properties>

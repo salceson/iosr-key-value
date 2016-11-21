@@ -23,6 +23,7 @@
 
   <logger name="io.atomix.catalyst" level="WARN" />
   <logger name="io.atomix.copycat" level="INFO" />
+  <logger name="org.springframework" level="WARN" />
 
   <root level="INFO">
     <appender-ref ref="STDOUT" />

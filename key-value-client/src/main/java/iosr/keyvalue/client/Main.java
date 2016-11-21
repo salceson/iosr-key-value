@@ -53,14 +53,17 @@ public class Main {
 
         LOGGER.info("Key: " + key);
 
-        for (int i = 0; i < 1000; i++) {
+        client.submit(new PutCommand(key, 0)).join();
+
+        for (int i = 0; i < 10000; i++) {
             if (i % 10 == 0 || i == 999) {
                 LOGGER.info(String.format("Performing %dth write...", i + 1));
             }
-            client.submit(new PutCommand(key, UUID.randomUUID())).join();
+            Integer value = (Integer) client.submit(new GetQuery(key)).join();
+            client.submit(new PutCommand(key, value + 1)).join();
         }
 
-        UUID result = (UUID) client.submit(new GetQuery(key)).join();
+        Integer result = (Integer) client.submit(new GetQuery(key)).join();
 
         LOGGER.info("Final value: " + result);
 

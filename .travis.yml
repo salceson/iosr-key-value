@@ -8,6 +8,6 @@ script:
   - docker network create iosrkeyvalue_iosr
   - docker-compose create
   - docker-compose start
-  - sleep 180
+  - ./verify.sh
   - docker-compose stop
   - docker-compose logs
