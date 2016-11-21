@@ -63,7 +63,7 @@ public class ServerLauncher {
             members.add(new Address(memberInfo[0], Integer.valueOf(memberInfo[1])));
         }
 
-        Thread.sleep(1000 + new Random().nextInt(5000));
+        Thread.sleep(200 + new Random().nextInt(1000));
 
         final CopycatServer server = CopycatServer.builder(address)
                 .withStateMachine(() -> stateMachine)
